@@ -97,14 +97,27 @@ npm start
 
 ### Colors
 
-The primary colors can be customized in `tailwind.config.js`:
+The color scheme uses CSS custom properties and can be customized in `src/app/globals.css`:
 
-```js
-colors: {
-  primary: "#00d4ff",    // Cyan
-  secondary: "#bf7fff",  // Purple
+```css
+:root {
+  --primary: #e6a91d;     // Golden yellow (light mode)
+  --background: #fafcfd;  // Light gray background
+  --uBlack: #2c2413;      // Dark text
+  --uGray: #434343;       // Medium gray
+  /* ... other colors */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #ffc131;     // Brighter yellow (dark mode)
+    --background: #202020;  // Dark background
+    /* ... other dark mode colors */
+  }
 }
 ```
+
+Colors are also defined in `tailwind.config.js` for easy use with Tailwind classes.
 
 ### Content
 
