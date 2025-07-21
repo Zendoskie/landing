@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { useState } from 'react';
 
 export default function Home() {
@@ -37,32 +36,19 @@ export default function Home() {
     <div className="min-h-screen w-full gradient-bg relative overflow-hidden">
       {/* Navigation */}
       <nav className="relative z-10 p-6 flex justify-between items-center">
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="text-2xl font-bold text-primary"
-        >
+        <div className="text-2xl font-bold text-primary">
           OpenE
-        </motion.div>
-                 <motion.div 
-           initial={{ opacity: 0, x: 20 }}
-           animate={{ opacity: 1, x: 0 }}
-           className="flex gap-6 text-sm text-uGrayLight"
-         >
+        </div>
+        <div className="flex gap-6 text-sm text-uGrayLight">
           <a href="#features" className="hover:text-primary transition-colors">Features</a>
           <a href="#download" className="hover:text-primary transition-colors">Download</a>
           <a href="#about" className="hover:text-primary transition-colors">About</a>
-        </motion.div>
+        </div>
       </nav>
 
       {/* Hero Section */}
       <section className="relative z-10 flex flex-col items-center justify-center min-h-[80vh] px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
-        >
+        <div className="max-w-4xl mx-auto">
           <h1 className="text-7xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-uBlue mb-6 animate-float">
             OpenE
           </h1>
@@ -74,54 +60,35 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-primary to-uBlue text-white dark:text-uBlack font-semibold px-8 py-4 rounded-xl text-lg shadow-2xl hover:shadow-primary/25 transition-all duration-300"
-            >
+            <button className="bg-gradient-to-r from-primary to-uBlue text-white dark:text-uBlack font-semibold px-8 py-4 rounded-xl text-lg shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:scale-105">
               Download OpenE
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="glass-dark text-primary border border-primary/30 font-semibold px-8 py-4 rounded-xl text-lg hover:bg-primary/10 transition-all duration-300"
-            >
+            </button>
+            <button className="glass-dark text-primary border border-primary/30 font-semibold px-8 py-4 rounded-xl text-lg hover:bg-primary/10 transition-all duration-300 hover:scale-105">
               View on GitHub
-            </motion.button>
+            </button>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Features Section */}
       <section id="features" className="relative z-10 py-20 px-6">
         <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16">
             <h3 className="text-4xl md:text-5xl font-bold text-uBlack dark:text-uGray mb-6">
               Powerful Features
             </h3>
             <p className="text-xl text-uGrayLight dark:text-uGrayLightLight max-w-2xl mx-auto">
               Everything you need for comprehensive computer literacy evaluation
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <motion.div
+              <div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10 }}
-                onHoverStart={() => setHoveredFeature(index)}
-                onHoverEnd={() => setHoveredFeature(null)}
-                className="glass-dark p-6 rounded-2xl hover:bg-white/5 transition-all duration-300 group cursor-pointer"
+                onMouseEnter={() => setHoveredFeature(index)}
+                onMouseLeave={() => setHoveredFeature(null)}
+                className="glass-dark p-6 rounded-2xl hover:bg-white/5 transition-all duration-300 group cursor-pointer hover:-translate-y-2"
               >
                 <div className={`text-4xl mb-4 transition-transform duration-300 ${hoveredFeature === index ? 'scale-110' : ''}`}>
                   {feature.icon}
@@ -132,7 +99,7 @@ export default function Home() {
                 <p className="text-uGrayLight dark:text-uGrayLightLight leading-relaxed">
                   {feature.description}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -141,13 +108,7 @@ export default function Home() {
       {/* Download Section */}
       <section id="download" className="relative z-10 py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="glass-dark p-12 rounded-3xl"
-          >
+          <div className="glass-dark p-12 rounded-3xl">
             <h3 className="text-4xl font-bold text-uBlack dark:text-uGray mb-6">
               Ready to Get Started?
             </h3>
@@ -156,41 +117,28 @@ export default function Home() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-primary to-uBlue text-white dark:text-uBlack font-semibold px-10 py-4 rounded-xl text-lg shadow-2xl hover:shadow-primary/25 transition-all duration-300 flex items-center gap-2"
-              >
+              <button className="bg-gradient-to-r from-primary to-uBlue text-white dark:text-uBlack font-semibold px-10 py-4 rounded-xl text-lg shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:scale-105 flex items-center gap-2">
                 <span>🖥️</span>
                 Download for Windows
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-uGray to-uGrayLight text-white font-semibold px-10 py-4 rounded-xl text-lg shadow-xl hover:shadow-uGray/25 transition-all duration-300 flex items-center gap-2"
-              >
+              </button>
+              <button className="bg-gradient-to-r from-uGray to-uGrayLight text-white font-semibold px-10 py-4 rounded-xl text-lg shadow-xl hover:shadow-uGray/25 transition-all duration-300 hover:scale-105 flex items-center gap-2">
                 <span>🍎</span>
                 Download for macOS
-              </motion.button>
+              </button>
             </div>
             
             <div className="text-sm text-uGrayLightLight space-y-2">
               <p>System Requirements: Windows 10+ / macOS 10.15+</p>
               <p>Version 0.1.0 • Released 2025 • MIT License</p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* About Section */}
       <section id="about" className="relative z-10 py-20 px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
+          <div>
             <h3 className="text-4xl font-bold text-uBlack dark:text-uGray mb-8">
               About OpenE
             </h3>
@@ -206,7 +154,7 @@ export default function Home() {
               <span className="bg-primary/10 text-primary px-3 py-1 rounded-full">AI-Powered</span>
               <span className="bg-primary/10 text-primary px-3 py-1 rounded-full">Cross-Platform</span>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
