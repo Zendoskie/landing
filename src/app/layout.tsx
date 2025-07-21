@@ -8,19 +8,23 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "OpenE - Computer Literacy Evaluation Platform",
-  description: "A powerful desktop application for evaluating and analyzing computer science concepts. Features AI-powered evaluation, enumeration checking, and advanced analytics.",
-  keywords: ["computer literacy", "education", "evaluation", "AI", "desktop app", "computer science"],
-  authors: [{ name: "OpenE Team" }],
+  title: "Open2E - AI-Powered Open-Ended Question Evaluation",
+  description: "Intelligent evaluation tool that uses GPT-4o and NLP to automatically analyze and score student responses for open-ended questions. Perfect for computer literacy and critical-thinking subjects.",
+  keywords: ["AI evaluation", "education", "GPT-4o", "NLP", "open-ended questions", "computer literacy", "automatic grading"],
+  authors: [
+    { name: "Jr Nino Garingarao" },
+    { name: "John Paul Marquez" },
+    { name: "Alyssa Jane Marquez" }
+  ],
   openGraph: {
-    title: "OpenE - Computer Literacy Evaluation Platform",
-    description: "A powerful desktop application for evaluating and analyzing computer science concepts.",
+    title: "Open2E - AI-Powered Open-Ended Question Evaluation",
+    description: "Intelligent evaluation tool that uses GPT-4o and NLP to automatically analyze and score student responses.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "OpenE - Computer Literacy Evaluation Platform",
-    description: "A powerful desktop application for evaluating and analyzing computer science concepts.",
+    title: "Open2E - AI-Powered Open-Ended Question Evaluation",
+    description: "Intelligent evaluation tool that uses GPT-4o and NLP to automatically analyze and score student responses.",
   },
 };
 
