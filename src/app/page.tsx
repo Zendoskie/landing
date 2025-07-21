@@ -44,11 +44,11 @@ export default function Home() {
         >
           OpenE
         </motion.div>
-        <motion.div 
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="flex gap-6 text-sm text-gray-300"
-        >
+                 <motion.div 
+           initial={{ opacity: 0, x: 20 }}
+           animate={{ opacity: 1, x: 0 }}
+           className="flex gap-6 text-sm text-uGrayLight"
+         >
           <a href="#features" className="hover:text-primary transition-colors">Features</a>
           <a href="#download" className="hover:text-primary transition-colors">Download</a>
           <a href="#about" className="hover:text-primary transition-colors">About</a>
@@ -63,13 +63,13 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className="text-7xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary mb-6 animate-float">
+          <h1 className="text-7xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-primary to-uBlue mb-6 animate-float">
             OpenE
           </h1>
-          <h2 className="text-2xl md:text-3xl text-gray-200 font-light mb-8 leading-relaxed">
+          <h2 className="text-2xl md:text-3xl text-uGray dark:text-uGrayLight font-light mb-8 leading-relaxed">
             Computer Literacy Evaluation Platform
           </h2>
-          <p className="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-uGrayLight dark:text-uGrayLightLight mb-12 max-w-2xl mx-auto leading-relaxed">
             A powerful desktop application designed for comprehensive evaluation and analysis of computer science concepts with AI-powered insights.
           </p>
           
@@ -77,7 +77,7 @@ export default function Home() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-primary to-secondary text-black font-semibold px-8 py-4 rounded-xl text-lg shadow-2xl hover:shadow-primary/25 transition-all duration-300"
+              className="bg-gradient-to-r from-primary to-uBlue text-white dark:text-uBlack font-semibold px-8 py-4 rounded-xl text-lg shadow-2xl hover:shadow-primary/25 transition-all duration-300"
             >
               Download OpenE
             </motion.button>
@@ -102,10 +102,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h3 className="text-4xl md:text-5xl font-bold text-uBlack dark:text-uGray mb-6">
               Powerful Features
             </h3>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            <p className="text-xl text-uGrayLight dark:text-uGrayLightLight max-w-2xl mx-auto">
               Everything you need for comprehensive computer literacy evaluation
             </p>
           </motion.div>
@@ -126,10 +126,10 @@ export default function Home() {
                 <div className={`text-4xl mb-4 transition-transform duration-300 ${hoveredFeature === index ? 'scale-110' : ''}`}>
                   {feature.icon}
                 </div>
-                <h4 className="text-xl font-semibold text-white mb-3 group-hover:text-primary transition-colors">
+                <h4 className="text-xl font-semibold text-uBlack dark:text-uGray mb-3 group-hover:text-primary transition-colors">
                   {feature.title}
                 </h4>
-                <p className="text-gray-400 leading-relaxed">
+                <p className="text-uGrayLight dark:text-uGrayLightLight leading-relaxed">
                   {feature.description}
                 </p>
               </motion.div>
@@ -148,10 +148,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="glass-dark p-12 rounded-3xl"
           >
-            <h3 className="text-4xl font-bold text-white mb-6">
+            <h3 className="text-4xl font-bold text-uBlack dark:text-uGray mb-6">
               Ready to Get Started?
             </h3>
-            <p className="text-xl text-gray-400 mb-8 leading-relaxed">
+            <p className="text-xl text-uGrayLight dark:text-uGrayLightLight mb-8 leading-relaxed">
               Download OpenE and transform your computer literacy evaluation experience
             </p>
             
@@ -159,7 +159,7 @@ export default function Home() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-primary to-secondary text-black font-semibold px-10 py-4 rounded-xl text-lg shadow-2xl hover:shadow-primary/25 transition-all duration-300 flex items-center gap-2"
+                className="bg-gradient-to-r from-primary to-uBlue text-white dark:text-uBlack font-semibold px-10 py-4 rounded-xl text-lg shadow-2xl hover:shadow-primary/25 transition-all duration-300 flex items-center gap-2"
               >
                 <span>🖥️</span>
                 Download for Windows
@@ -167,14 +167,14 @@ export default function Home() {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-gray-600 to-gray-700 text-white font-semibold px-10 py-4 rounded-xl text-lg shadow-xl hover:shadow-gray-500/25 transition-all duration-300 flex items-center gap-2"
+                className="bg-gradient-to-r from-uGray to-uGrayLight text-white font-semibold px-10 py-4 rounded-xl text-lg shadow-xl hover:shadow-uGray/25 transition-all duration-300 flex items-center gap-2"
               >
                 <span>🍎</span>
                 Download for macOS
               </motion.button>
             </div>
             
-            <div className="text-sm text-gray-500 space-y-2">
+            <div className="text-sm text-uGrayLightLight space-y-2">
               <p>System Requirements: Windows 10+ / macOS 10.15+</p>
               <p>Version 0.1.0 • Released 2025 • MIT License</p>
             </div>
@@ -191,15 +191,15 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-4xl font-bold text-white mb-8">
+            <h3 className="text-4xl font-bold text-uBlack dark:text-uGray mb-8">
               About OpenE
             </h3>
-            <p className="text-lg text-gray-300 leading-relaxed mb-8">
+            <p className="text-lg text-uGray dark:text-uGrayLight leading-relaxed mb-8">
               OpenE is a modern desktop application built with Tauri and React, designed specifically for 
               computer literacy education. Our platform combines cutting-edge AI technology with intuitive 
               design to provide comprehensive evaluation tools for educators and students alike.
             </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-uGrayLight">
               <span className="bg-primary/10 text-primary px-3 py-1 rounded-full">Tauri</span>
               <span className="bg-primary/10 text-primary px-3 py-1 rounded-full">React</span>
               <span className="bg-primary/10 text-primary px-3 py-1 rounded-full">TypeScript</span>
@@ -213,10 +213,10 @@ export default function Home() {
       {/* Footer */}
       <footer className="relative z-10 py-8 px-6 border-t border-white/10">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
-          <div className="text-gray-400 text-sm mb-4 md:mb-0">
+          <div className="text-uGrayLight text-sm mb-4 md:mb-0">
             © 2025 OpenE. All rights reserved.
           </div>
-          <div className="flex gap-6 text-sm text-gray-400">
+          <div className="flex gap-6 text-sm text-uGrayLight">
             <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
             <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
             <a href="#" className="hover:text-primary transition-colors">Support</a>
