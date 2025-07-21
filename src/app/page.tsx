@@ -129,18 +129,9 @@ export default function Home() {
         <div className="railway-container">
           <div className="flex items-center justify-between h-16">
             <div className={`flex items-center space-x-3 transition-all duration-700 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
-              {/* Logo Container - Replace this section with your logo */}
+              {/* Logo Container */}
               <div className="logo-container animate-pulse-glow">
-                {/* 
-                  TO REPLACE WITH YOUR LOGO:
-                  1. Add your logo image file to the /public folder (e.g., /public/logo.png)
-                  2. Replace the span below with: <img src="/logo.png" alt="Open2E Logo" />
-                  3. Remove the span entirely
-                  
-                  Example:
-                  <img src="/logo.png" alt="Open2E Logo" />
-                */}
-                <span className="text-black font-bold text-sm">2E</span>
+                <img src="/logo.png" alt="Open2E Logo" />
               </div>
               <span className="text-xl font-bold tracking-tight">Open2E</span>
             </div>
@@ -390,18 +381,9 @@ export default function Home() {
           <div className="scroll-animate slide-in-bottom">
             <div className="flex flex-col md:flex-row justify-between items-center mb-8">
               <div className="flex items-center space-x-3 mb-6 md:mb-0">
-                {/* Footer Logo - Replace this section with your logo */}
+                {/* Footer Logo */}
                 <div className="logo-container footer-logo">
-                  {/* 
-                    TO REPLACE WITH YOUR LOGO:
-                    1. Add your logo image file to the /public folder (e.g., /public/logo.png)
-                    2. Replace the span below with: <img src="/logo.png" alt="Open2E Logo" />
-                    3. Remove the span entirely
-                    
-                    Example:
-                    <img src="/logo.png" alt="Open2E Logo" />
-                  */}
-                  <span className="text-black font-bold text-xs">2E</span>
+                  <img src="/logo.png" alt="Open2E Logo" />
                 </div>
                 <span className="text-xl font-bold">Open2E</span>
               </div>
