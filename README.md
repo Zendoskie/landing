@@ -1,26 +1,46 @@
-# OpenE Landing Page
+# Open2E Landing Page
 
-A modern, responsive landing page for the OpenE desktop application - a powerful computer literacy evaluation platform.
+A modern, responsive landing page for the Open2E research project - an AI-powered open-ended question evaluation tool using GPT-4o and NLP.
 
-## About OpenE
+## About Open2E
 
-OpenE is a Tauri-based desktop application designed for comprehensive evaluation and analysis of computer science concepts. It features AI-powered evaluation, enumeration checking, advanced analytics, and an interactive AI chat assistant.
+Open2E is a research project that addresses the challenges of manual grading for open-ended questions. Our intelligent evaluation tool uses GPT-4o and Natural Language Processing to automatically analyze and score student responses, providing clear, consistent, and constructive feedback in seconds.
 
-## Features
+## Research Team
 
-- 🤖 **AI-Powered Evaluation** - Advanced AI analysis for comprehensive answer evaluation and feedback
-- 📋 **Enumeration Checker** - Precise enumeration verification with expected answer matching
-- 📊 **Advanced Analytics** - Detailed performance insights and learning progress tracking
-- 💬 **AI Chat Assistant** - Interactive AI support for learning and problem-solving guidance
+- **Jr Nino Garingarao** - Lead Researcher
+- **John Paul Marquez** - AI Developer  
+- **Alyssa Jane Marquez** - UI/UX Designer
+
+## Key Features
+
+- 🤖 **GPT-4o Integration** - Advanced AI analysis using OpenAI's latest model
+- 🧠 **NLP Analysis** - Natural Language Processing for accurate response understanding
+- ⚡ **Instant Feedback** - Get detailed feedback in seconds, not hours
+- 📊 **Consistent Scoring** - Eliminate grading inconsistencies with standardized AI evaluation
+
+## Target Audience
+
+- **Educators** - Teachers looking for efficient grading solutions
+- **Students** - Learners seeking immediate feedback on their responses  
+- **Self-studying Individuals** - Anyone wanting to practice and improve their answers
+
+## Website Sections
+
+1. **Hero Section** - Introduction and main call-to-action
+2. **Research Objective** - Problem statement and solution overview
+3. **Key Features** - Feature showcase with screenshot placeholders
+4. **About the Researchers** - Team information and contact details
+5. **FAQ** - Common questions about the AI evaluation system
+6. **Download Section** - Download links for Linux and Windows
 
 ## Technology Stack
 
-- **Next.js 15** - React framework with App Router
-- **React 19** - UI library
+- **Next.js 14** - React framework with App Router
+- **React 18** - UI library
 - **TypeScript** - Type safety
 - **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **Geist Font** - Modern typography
+- **Inter Font** - Modern typography
 
 ## Getting Started
 
@@ -60,38 +80,22 @@ pnpm dev
 ## Project Structure
 
 ```
-├── src/
-│   └── app/
-│       ├── globals.css     # Global styles and gradient backgrounds
-│       ├── layout.tsx      # Root layout with metadata
-│       └── page.tsx        # Main landing page component
-├── tailwind.config.js      # Tailwind configuration
-├── next.config.ts          # Next.js configuration
-└── package.json           # Dependencies and scripts
+├── src/app/
+│   ├── globals.css     # Global styles and gradient backgrounds
+│   ├── layout.tsx      # Root layout with metadata
+│   └── page.tsx        # Main landing page component
+├── tailwind.config.js  # Tailwind configuration
+├── next.config.js      # Next.js configuration
+└── package.json       # Dependencies and scripts
 ```
 
 ## Design Features
 
 - **Glassmorphism Design** - Modern glass-like UI elements with backdrop blur
-- **Gradient Backgrounds** - Multi-color radial gradients similar to the desktop app
-- **Smooth Animations** - Powered by Framer Motion for engaging interactions
+- **Gradient Backgrounds** - Multi-color radial gradients with golden accents
+- **Interactive Components** - FAQ accordion, hover effects, and smooth transitions
 - **Responsive Layout** - Mobile-first design that works on all devices
-- **Dark Theme** - Consistent with the desktop application's aesthetic
-
-## Deployment
-
-### Vercel (Recommended)
-
-1. Push your code to GitHub
-2. Connect your repository to [Vercel](https://vercel.com)
-3. Deploy automatically with each push
-
-### Manual Build
-
-```bash
-npm run build
-npm start
-```
+- **Light/Dark Theme Support** - Automatic theme detection and adaptation
 
 ## Customization
 
@@ -117,24 +121,50 @@ The color scheme uses CSS custom properties and can be customized in `src/app/gl
 }
 ```
 
-Colors are also defined in `tailwind.config.js` for easy use with Tailwind classes.
-
 ### Content
 
-Update the landing page content in `src/app/page.tsx` to match your specific needs.
+Update the landing page content in `src/app/page.tsx` to match your specific research details, contact information, and download links.
+
+### Logo
+
+Replace the placeholder logo in the navigation and footer with your actual Open2E logo by updating the logo sections in `src/app/page.tsx`.
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Connect your repository to [Vercel](https://vercel.com)
+3. Deploy automatically with each push
+
+### Manual Build
+
+```bash
+npm run build
+npm start
+```
+
+## Research Focus
+
+Open2E addresses critical challenges in educational assessment:
+
+- **Manual Grading Issues** - Slow, inconsistent, and stressful for educators
+- **Student Feedback** - Lack of immediate, constructive response analysis
+- **Scalability** - Difficulty handling large volumes of open-ended responses
+- **Consistency** - Human bias and fatigue affecting grading standards
 
 ## License
 
-MIT License - see LICENSE file for details.
+This is a research project. All rights reserved 2025.
+
+## Contact
+
+For inquiries about the Open2E research project:
+
+- **GitHub**: [Your Repository Link]
+- **Facebook**: [Your Facebook Page]
+- **Instagram**: [Your Instagram Account]
 
 ## Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## Support
-
-For support with the OpenE desktop application or this landing page, please open an issue in the repository.
+This is a research project by Jr Nino Garingarao, John Paul Marquez, and Alyssa Jane Marquez. For collaboration inquiries, please contact the research team directly.
