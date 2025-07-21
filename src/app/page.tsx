@@ -1,13 +1,40 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
+  // Scroll animation setup
   useEffect(() => {
     setIsVisible(true);
+
+    // Create intersection observer for scroll animations
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-in');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      }
+    );
+
+    // Observe all scroll-animate elements
+    const animateElements = document.querySelectorAll('.scroll-animate');
+    animateElements.forEach((el) => observerRef.current?.observe(el));
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
   }, []);
 
   const features = [
@@ -86,18 +113,33 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-hidden">
+    <div className="min-h-screen text-white relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="animated-bg">
+        <div className="floating-orb orb-1"></div>
+        <div className="floating-orb orb-2"></div>
+        <div className="floating-orb orb-3"></div>
+      </div>
+
       {/* Animated grid background */}
       <div className="fixed inset-0 railway-grid opacity-20 pointer-events-none" />
-      <div className="fixed inset-0 railway-bg pointer-events-none" />
 
       {/* Navigation */}
       <nav className="relative z-50 border-b border-white/10">
         <div className="railway-container">
           <div className="flex items-center justify-between h-16">
             <div className={`flex items-center space-x-3 transition-all duration-700 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
-              {/* Logo */}
-              <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-indigo-500 rounded-lg flex items-center justify-center animate-pulse-glow">
+              {/* Logo Container - Replace this section with your logo */}
+              <div className="logo-container animate-pulse-glow">
+                {/* 
+                  TO REPLACE WITH YOUR LOGO:
+                  1. Add your logo image file to the /public folder (e.g., /public/logo.png)
+                  2. Replace the span below with: <img src="/logo.png" alt="Open2E Logo" />
+                  3. Remove the span entirely
+                  
+                  Example:
+                  <img src="/logo.png" alt="Open2E Logo" />
+                */}
                 <span className="text-black font-bold text-sm">2E</span>
               </div>
               <span className="text-xl font-bold tracking-tight">Open2E</span>
@@ -148,18 +190,22 @@ export default function Home() {
       <section id="objective" className="relative railway-section border-t border-white/10">
         <div className="railway-container">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-bold railway-heading mb-8">
-              Research Objective
-            </h2>
-            <div className="railway-card p-8 mx-auto">
-              <p className="text-xl railway-text leading-relaxed mb-6">
-                Manual grading of open-ended questions is slow, inconsistent, and stressful for both teachers and students. 
-                Our intelligent evaluation tool uses <span className="text-yellow-400 font-semibold">GPT-4o and NLP</span> to automatically 
-                analyze and score student responses — providing clear, consistent, and constructive feedback in seconds.
-              </p>
-              <p className="text-lg text-gray-400">
-                Perfect for computer literacy and other critical-thinking subjects.
-              </p>
+            <div className="scroll-animate slide-in-bottom">
+              <h2 className="text-4xl md:text-5xl font-bold railway-heading mb-8">
+                Research Objective
+              </h2>
+            </div>
+            <div className="scroll-animate scale-in">
+              <div className="railway-card p-8 mx-auto">
+                <p className="text-xl railway-text leading-relaxed mb-6">
+                  Manual grading of open-ended questions is slow, inconsistent, and stressful for both teachers and students. 
+                  Our intelligent evaluation tool uses <span className="text-yellow-400 font-semibold">GPT-4o and NLP</span> to automatically 
+                  analyze and score student responses — providing clear, consistent, and constructive feedback in seconds.
+                </p>
+                <p className="text-lg text-gray-400">
+                  Perfect for computer literacy and other critical-thinking subjects.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -169,35 +215,39 @@ export default function Home() {
       <section id="features" className="relative railway-section border-t border-white/10">
         <div className="railway-container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold railway-heading mb-6">
-              Key Features
-            </h2>
-            <p className="text-xl railway-text max-w-2xl mx-auto">
-              Advanced AI technology for revolutionary educational assessment
-            </p>
+            <div className="scroll-animate slide-in-top">
+              <h2 className="text-4xl md:text-5xl font-bold railway-heading mb-6">
+                Key Features
+              </h2>
+              <p className="text-xl railway-text max-w-2xl mx-auto">
+                Advanced AI technology for revolutionary educational assessment
+              </p>
+            </div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="railway-card p-8 railway-hover-lift">
-                <div className="flex items-start space-x-6">
-                  <div className="text-4xl p-3 bg-gradient-to-br from-yellow-400/20 to-indigo-500/20 rounded-xl">
-                    {feature.icon}
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold railway-heading mb-3">
-                      {feature.title}
-                    </h3>
-                    <p className="railway-text mb-6 leading-relaxed">
-                      {feature.description}
-                    </p>
-                    {/* Screenshot placeholder */}
-                    <div className="w-full h-48 bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg flex items-center justify-center border border-white/10 relative overflow-hidden group">
-                      <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      <div className="text-center z-10">
-                        <div className="text-3xl mb-2 opacity-50">🖼️</div>
-                        <div className="text-sm text-gray-400">Screenshot Preview</div>
-                        <div className="text-xs text-gray-500 mt-1">{feature.title}</div>
+              <div key={index} className={`scroll-animate ${index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'}`}>
+                <div className="railway-card p-8 railway-hover-lift">
+                  <div className="flex items-start space-x-6">
+                    <div className="text-4xl p-3 bg-gradient-to-br from-yellow-400/20 to-indigo-500/20 rounded-xl">
+                      {feature.icon}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold railway-heading mb-3">
+                        {feature.title}
+                      </h3>
+                      <p className="railway-text mb-6 leading-relaxed">
+                        {feature.description}
+                      </p>
+                      {/* Screenshot placeholder */}
+                      <div className="w-full h-48 bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg flex items-center justify-center border border-white/10 relative overflow-hidden group">
+                        <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/10 to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="text-center z-10">
+                          <div className="text-3xl mb-2 opacity-50">🖼️</div>
+                          <div className="text-sm text-gray-400">Screenshot Preview</div>
+                          <div className="text-xs text-gray-500 mt-1">{feature.title}</div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -212,37 +262,41 @@ export default function Home() {
       <section id="team" className="relative railway-section border-t border-white/10">
         <div className="railway-container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold railway-heading mb-6">
-              Research Team
-            </h2>
-            <p className="text-xl railway-text max-w-2xl mx-auto">
-              Meet the minds behind Open2E's innovative AI evaluation technology
-            </p>
+            <div className="scroll-animate slide-in-bottom">
+              <h2 className="text-4xl md:text-5xl font-bold railway-heading mb-6">
+                Research Team
+              </h2>
+              <p className="text-xl railway-text max-w-2xl mx-auto">
+                Meet the minds behind Open2E's innovative AI evaluation technology
+              </p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {researchers.map((researcher, index) => (
-              <div key={index} className="railway-card p-8 text-center railway-hover-lift">
-                {/* Avatar */}
-                <div className="w-24 h-24 bg-gradient-to-br from-yellow-400 to-indigo-500 rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <span className="text-2xl text-black font-bold">
-                    {researcher.name.split(' ').map(n => n[0]).join('')}
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold railway-heading mb-2">
-                  {researcher.name}
-                </h3>
-                <p className="text-yellow-400 font-medium mb-4">{researcher.role}</p>
-                <div className="space-y-2 text-sm">
-                  <div>
-                    <a href={`mailto:${researcher.email}`} className="text-gray-400 hover:text-white transition-colors">
-                      {researcher.email}
-                    </a>
+              <div key={index} className={`scroll-animate slide-in-bottom`} style={{animationDelay: `${index * 200}ms`}}>
+                <div className="railway-card p-8 text-center railway-hover-lift">
+                  {/* Avatar */}
+                  <div className="w-24 h-24 bg-gradient-to-br from-yellow-400 to-indigo-500 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <span className="text-2xl text-black font-bold">
+                      {researcher.name.split(' ').map(n => n[0]).join('')}
+                    </span>
                   </div>
-                  <div>
-                    <a href={researcher.github} className="text-indigo-400 hover:text-indigo-300 transition-colors" target="_blank" rel="noopener noreferrer">
-                      GitHub Profile →
-                    </a>
+                  <h3 className="text-xl font-bold railway-heading mb-2">
+                    {researcher.name}
+                  </h3>
+                  <p className="text-yellow-400 font-medium mb-4">{researcher.role}</p>
+                  <div className="space-y-2 text-sm">
+                    <div>
+                      <a href={`mailto:${researcher.email}`} className="text-gray-400 hover:text-white transition-colors">
+                        {researcher.email}
+                      </a>
+                    </div>
+                    <div>
+                      <a href={researcher.github} className="text-indigo-400 hover:text-indigo-300 transition-colors" target="_blank" rel="noopener noreferrer">
+                        GitHub Profile →
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -256,33 +310,37 @@ export default function Home() {
         <div className="railway-container">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold railway-heading mb-6">
-                Frequently Asked Questions
-              </h2>
-              <p className="text-xl railway-text">
-                Common questions about Open2E's AI evaluation system
-              </p>
+              <div className="scroll-animate slide-in-top">
+                <h2 className="text-4xl md:text-5xl font-bold railway-heading mb-6">
+                  Frequently Asked Questions
+                </h2>
+                <p className="text-xl railway-text">
+                  Common questions about Open2E's AI evaluation system
+                </p>
+              </div>
             </div>
 
             <div className="space-y-4">
               {faqs.map((faq, index) => (
-                <div key={index} className="railway-card overflow-hidden">
-                  <button
-                    onClick={() => toggleFaq(index)}
-                    className="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition-all duration-200"
-                  >
-                    <h3 className="text-lg font-semibold railway-heading pr-4">
-                      {faq.question}
-                    </h3>
-                    <div className={`text-yellow-400 text-xl transform transition-transform duration-300 ${openFaq === index ? 'rotate-45' : ''}`}>
-                      +
-                    </div>
-                  </button>
-                  <div className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-                    <div className="px-6 pb-6">
-                      <p className="railway-text leading-relaxed">
-                        {faq.answer}
-                      </p>
+                <div key={index} className={`scroll-animate slide-in-left`} style={{animationDelay: `${index * 100}ms`}}>
+                  <div className="railway-card overflow-hidden">
+                    <button
+                      onClick={() => toggleFaq(index)}
+                      className="w-full p-6 text-left flex justify-between items-center hover:bg-white/5 transition-all duration-200"
+                    >
+                      <h3 className="text-lg font-semibold railway-heading pr-4">
+                        {faq.question}
+                      </h3>
+                      <div className={`text-yellow-400 text-xl transform transition-transform duration-300 ${openFaq === index ? 'rotate-45' : ''}`}>
+                        +
+                      </div>
+                    </button>
+                    <div className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                      <div className="px-6 pb-6">
+                        <p className="railway-text leading-relaxed">
+                          {faq.answer}
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -296,28 +354,30 @@ export default function Home() {
       <section id="download" className="relative railway-section border-t border-white/10">
         <div className="railway-container">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="railway-card p-12">
-              <h2 className="text-4xl font-bold railway-heading mb-6">
-                Download Open2E
-              </h2>
-              <p className="text-xl railway-text mb-8 leading-relaxed">
-                Get started with AI-powered evaluation for your educational needs
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-                <button className="railway-btn-primary px-10 py-4 rounded-xl text-lg font-semibold flex items-center space-x-2">
-                  <span>🐧</span>
-                  <span>Download for Linux</span>
-                </button>
-                <button className="railway-btn-secondary px-10 py-4 rounded-xl text-lg font-semibold flex items-center space-x-2">
-                  <span>🖥️</span>
-                  <span>Download for Windows</span>
-                </button>
-              </div>
-              
-              <div className="text-sm text-gray-500 space-y-1">
-                <p>System Requirements: Linux (Ubuntu 20.04+) / Windows 10+</p>
-                <p>Version 1.0.0 • Research Release • Open Source</p>
+            <div className="scroll-animate scale-in">
+              <div className="railway-card p-12">
+                <h2 className="text-4xl font-bold railway-heading mb-6">
+                  Download Open2E
+                </h2>
+                <p className="text-xl railway-text mb-8 leading-relaxed">
+                  Get started with AI-powered evaluation for your educational needs
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                  <button className="railway-btn-primary px-10 py-4 rounded-xl text-lg font-semibold flex items-center space-x-2">
+                    <span>🐧</span>
+                    <span>Download for Linux</span>
+                  </button>
+                  <button className="railway-btn-secondary px-10 py-4 rounded-xl text-lg font-semibold flex items-center space-x-2">
+                    <span>🖥️</span>
+                    <span>Download for Windows</span>
+                  </button>
+                </div>
+                
+                <div className="text-sm text-gray-500 space-y-1">
+                  <p>System Requirements: Linux (Ubuntu 20.04+) / Windows 10+</p>
+                  <p>Version 1.0.0 • Research Release • Open Source</p>
+                </div>
               </div>
             </div>
           </div>
@@ -327,30 +387,42 @@ export default function Home() {
       {/* Footer */}
       <footer className="relative border-t border-white/10 py-12">
         <div className="railway-container">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-8">
-            <div className="flex items-center space-x-3 mb-6 md:mb-0">
-              <div className="w-8 h-8 bg-gradient-to-br from-yellow-400 to-indigo-500 rounded-lg flex items-center justify-center">
-                <span className="text-black font-bold text-sm">2E</span>
+          <div className="scroll-animate slide-in-bottom">
+            <div className="flex flex-col md:flex-row justify-between items-center mb-8">
+              <div className="flex items-center space-x-3 mb-6 md:mb-0">
+                {/* Footer Logo - Replace this section with your logo */}
+                <div className="logo-container footer-logo">
+                  {/* 
+                    TO REPLACE WITH YOUR LOGO:
+                    1. Add your logo image file to the /public folder (e.g., /public/logo.png)
+                    2. Replace the span below with: <img src="/logo.png" alt="Open2E Logo" />
+                    3. Remove the span entirely
+                    
+                    Example:
+                    <img src="/logo.png" alt="Open2E Logo" />
+                  */}
+                  <span className="text-black font-bold text-xs">2E</span>
+                </div>
+                <span className="text-xl font-bold">Open2E</span>
               </div>
-              <span className="text-xl font-bold">Open2E</span>
+              
+              <div className="flex items-center space-x-6">
+                <a href="https://github.com/your-repo/open2e" className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                  GitHub
+                </a>
+                <a href="https://facebook.com/open2e" className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                  Facebook
+                </a>
+                <a href="https://instagram.com/open2e" className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
+                  Instagram
+                </a>
+              </div>
             </div>
             
-            <div className="flex items-center space-x-6">
-              <a href="https://github.com/your-repo/open2e" className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
-                GitHub
-              </a>
-              <a href="https://facebook.com/open2e" className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
-                Facebook
-              </a>
-              <a href="https://instagram.com/open2e" className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">
-                Instagram
-              </a>
+            <div className="text-center text-gray-500 text-sm border-t border-white/10 pt-8">
+              <p>© 2025 Open2E Research Project. All rights reserved.</p>
+              <p className="mt-2">Developed by Jr Nino Garingarao, John Paul Marquez, and Alyssa Jane Marquez</p>
             </div>
-          </div>
-          
-          <div className="text-center text-gray-500 text-sm border-t border-white/10 pt-8">
-            <p>© 2025 Open2E Research Project. All rights reserved.</p>
-            <p className="mt-2">Developed by Jr Nino Garingarao, John Paul Marquez, and Alyssa Jane Marquez</p>
           </div>
         </div>
       </footer>
