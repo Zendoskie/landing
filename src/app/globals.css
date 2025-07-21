@@ -5,16 +5,23 @@
 @layer base {
   :root {
     --primary: #e6a91d;
-    --background: #fafcfd;
+    --background: #0a0a0a;
     --secondary: #00abbf28;
-    --panel: #f1f1f1;
-    --uBlack: #2c2413;
-    --uGray: #434343;
-    --uGrayLight: #666666;
-    --uGrayLightLight: #999999;
+    --panel: #111111;
+    --uBlack: #000000;
+    --uGray: #a1a1aa;
+    --uGrayLight: #d4d4d8;
+    --uGrayLightLight: #f4f4f5;
     --uRed: #dc2626;
     --uGreen: #22c55e;
     --uBlue: #2563eb;
+    /* Railway-style colors */
+    --railway-bg: #0a0a0a;
+    --railway-surface: #111111;
+    --railway-border: #1f1f1f;
+    --railway-text: #fafafa;
+    --railway-text-muted: #a1a1aa;
+    --railway-accent: #6366f1;
     /* Scores */
     --score-1: #ff4d4d;
     --score-2: #ff6b4d;
@@ -28,73 +35,199 @@
     --score-10: #34d159;
   }
 
-  @media (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: light) {
     :root {
-      --primary: #ffc131;
-      --background: #202020;
+      --primary: #f59e0b;
+      --background: #ffffff;
       --secondary: #00abbf28;
-      --panel: #393939;
-      --uBlack: #0A0F18;
-      --uGray: #e7e7e7;
-      --uGrayLight: #bebebe;
-      --uGrayLightLight: #434343;
+      --panel: #f8fafc;
+      --uBlack: #0f172a;
+      --uGray: #64748b;
+      --uGrayLight: #334155;
+      --uGrayLightLight: #1e293b;
       --uRed: #ef4444;
-      --uGreen: #7bf1a8;
-      --uBlue: #60a5fa;
-      /* Scores */
-      --score-1: #ff5c5c;
-      --score-2: #ff765c;
-      --score-3: #ff956c;
-      --score-4: #ffb66c;
-      --score-5: #ffd26c;
-      --score-6: #e6dd6c;
-      --score-7: #c1e66c;
-      --score-8: #9ee66c;
-      --score-9: #6be66c;
-      --score-10: #34d17c;
+      --uGreen: #10b981;
+      --uBlue: #3b82f6;
+      /* Railway-style colors for light mode */
+      --railway-bg: #ffffff;
+      --railway-surface: #f8fafc;
+      --railway-border: #e2e8f0;
+      --railway-text: #0f172a;
+      --railway-text-muted: #64748b;
+      --railway-accent: #6366f1;
     }
   }
 
   body {
-    background: var(--background);
-    color: var(--uGray);
+    background: var(--railway-bg);
+    color: var(--railway-text);
     font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+  }
+
+  * {
+    border-color: var(--railway-border);
   }
 }
 
-/* Gradient background using new color scheme */
-.gradient-bg {
-  background: radial-gradient(ellipse 120% 80% at 70% 0%, rgba(230, 169, 29, 0.08) 0%, rgba(255, 255, 255, 0.02) 50%, rgba(0, 171, 191, 0.05) 100%);
+/* Railway-style animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.gradient-bg::after {
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.6); }
+}
+
+@keyframes grid-move {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-20px); }
+}
+
+/* Railway-style grid background */
+.railway-grid {
+  background-image: 
+    linear-gradient(rgba(99, 102, 241, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: grid-move 20s linear infinite;
+}
+
+/* Railway-style gradient background */
+.railway-bg {
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(99, 102, 241, 0.1) 0%, transparent 60%),
+              radial-gradient(ellipse 80% 50% at 50% 100%, rgba(230, 169, 29, 0.1) 0%, transparent 60%);
+}
+
+/* Glass cards Railway-style */
+.railway-card {
+  background: rgba(17, 17, 17, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.railway-card:hover {
+  background: rgba(17, 17, 17, 0.9);
+  border-color: rgba(99, 102, 241, 0.3);
+  transform: translateY(-4px);
+}
+
+/* Railway-style buttons */
+.railway-btn-primary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--railway-accent) 100%);
+  border: none;
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.railway-btn-primary::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle 600px at 10% 90%, rgba(230, 169, 29, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
-  pointer-events: none;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
 }
 
-/* Dark mode gradient */
-@media (prefers-color-scheme: dark) {
-  .gradient-bg {
-    background: radial-gradient(ellipse 80% 90% at 0% 80%, rgba(255, 193, 49, 0.08) 0%, rgba(32, 32, 32, 0.01) 100%);
+.railway-btn-primary:hover::before {
+  left: 100%;
+}
+
+.railway-btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(99, 102, 241, 0.5);
+  color: var(--railway-accent);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.railway-btn-secondary:hover {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: var(--railway-accent);
+}
+
+/* Animation utilities */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Typography Railway-style */
+.railway-heading {
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--railway-text);
+}
+
+.railway-text {
+  color: var(--railway-text-muted);
+  line-height: 1.7;
+}
+
+/* Hover effects */
+.railway-hover-lift {
+  transition: all 0.3s ease;
+}
+
+.railway-hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* Layout utilities */
+.railway-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.railway-section {
+  padding: 6rem 0;
+}
+
+@media (max-width: 768px) {
+  .railway-section {
+    padding: 4rem 0;
   }
-  
-  .gradient-bg::after {
-    background: radial-gradient(circle 600px at 10% 90%, rgba(255, 193, 49, 0.05) 0%, rgba(32, 32, 32, 0) 100%);
-  }
-}
-
-/* Glassmorphism effect */
-.glass {
-  backdrop-filter: blur(16px);
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.glass-dark {
-  backdrop-filter: blur(16px);
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
 }
