@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { clsx } from 'clsx';
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -137,7 +138,10 @@ export default function Home() {
       <nav className="relative z-50 border-b border-white/10">
         <div className="railway-container">
           <div className="flex items-center justify-between h-16">
-            <div className={`flex items-center space-x-3 transition-all duration-700 ${isVisible ? 'animate-slide-in-left' : 'opacity-0'}`}>
+            <div className={clsx(
+              'flex items-center space-x-3 transition-all duration-700',
+              isVisible ? 'animate-slide-in-left' : 'opacity-0'
+            )}>
               {/* Logo Container */}
               <div className="logo-container animate-pulse-glow">
                 <img src="/logo.png" alt="Open2E Logo" />
@@ -145,7 +149,10 @@ export default function Home() {
               <span className="text-xl font-bold tracking-tight">Open2E</span>
             </div>
             
-            <div className={`hidden md:flex items-center space-x-8 transition-all duration-700 delay-200 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+            <div className={clsx(
+              'hidden md:flex items-center space-x-8 transition-all duration-700 delay-200',
+              isVisible ? 'animate-fade-in-up' : 'opacity-0'
+            )}>
               <a href="#objective" className="text-gray-400 hover:text-white transition-colors text-sm font-medium">Objective</a>
               <a href="#features" className="text-gray-400 hover:text-white transition-colors text-sm font-medium">Features</a>
               <a href="#team" className="text-gray-400 hover:text-white transition-colors text-sm font-medium">Team</a>
@@ -160,7 +167,10 @@ export default function Home() {
       <section className="relative railway-section">
         <div className="railway-container">
           <div className="max-w-4xl mx-auto text-center">
-            <div className={`transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+            <div className={clsx(
+              'transition-all duration-1000',
+              isVisible ? 'animate-fade-in-up' : 'opacity-0'
+            )}>
               <h1 className="text-6xl md:text-8xl font-bold railway-heading mb-6 animate-float">
                 <span className="bg-gradient-to-r from-yellow-400 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
                   Open2E
@@ -227,7 +237,10 @@ export default function Home() {
 
           <div className="grid lg:grid-cols-2 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className={`scroll-animate ${index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'}`}>
+              <div key={index} className={clsx(
+                'scroll-animate',
+                index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'
+              )}>
                 <div className="railway-card p-8 railway-hover-lift">
                   <div className="flex items-start space-x-6">
                     <div className="text-4xl p-3 bg-gradient-to-br from-yellow-400/20 to-indigo-500/20 rounded-xl">
@@ -274,7 +287,11 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {researchers.map((researcher, index) => (
-              <div key={index} className={`scroll-animate slide-in-bottom`} style={{animationDelay: `${index * 200}ms`}}>
+              <div 
+                key={index} 
+                className={clsx('scroll-animate slide-in-bottom')}
+                style={{animationDelay: `${index * 200}ms`}}
+              >
                 <div className="railway-card p-8 text-center railway-hover-lift">
                   {/* Avatar */}
                   <div className="w-24 h-24 bg-gradient-to-br from-yellow-400 to-indigo-500 rounded-full mx-auto mb-6 flex items-center justify-center">
@@ -334,7 +351,11 @@ export default function Home() {
 
             <div className="space-y-4">
               {faqs.map((faq, index) => (
-                <div key={index} className={`scroll-animate slide-in-left`} style={{animationDelay: `${index * 100}ms`}}>
+                <div 
+                  key={index} 
+                  className={clsx('scroll-animate slide-in-left')}
+                  style={{animationDelay: `${index * 100}ms`}}
+                >
                   <div className="railway-card overflow-hidden">
                     <button
                       onClick={() => toggleFaq(index)}
@@ -343,11 +364,17 @@ export default function Home() {
                       <h3 className="text-lg font-semibold railway-heading pr-4">
                         {faq.question}
                       </h3>
-                      <div className={`text-yellow-400 text-xl transform transition-transform duration-300 ${openFaq === index ? 'rotate-45' : ''}`}>
+                      <div className={clsx(
+                        'text-yellow-400 text-xl transform transition-transform duration-300',
+                        openFaq === index ? 'rotate-45' : ''
+                      )}>
                         +
                       </div>
                     </button>
-                    <div className={`overflow-hidden transition-all duration-300 ${openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+                    <div className={clsx(
+                      'overflow-hidden transition-all duration-300',
+                      openFaq === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                    )}>
                       <div className="px-6 pb-6">
                         <p className="railway-text leading-relaxed">
                           {faq.answer}
