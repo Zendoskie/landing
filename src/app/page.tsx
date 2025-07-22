@@ -71,21 +71,21 @@ export default function Home() {
   const researchers = [
     {
       name: "Jr Nino Garingarao",
-      role: "Lead Researcher",
+      role: "Developer",
       email: "ninogaringarao13@gmail.com",
       github: "https://github.com/NjayGaringarao",
       facebook: "https://www.facebook.com/nigel.garingarao"
     },
     {
       name: "John Paul Marquez",
-      role: "AI Developer",
+      role: "UI/UX Designer",
       email: "johnpaulmarquez028@gmail.com",
       github: "https://github.com/Zendoskie",
       facebook: "https://www.facebook.com/zendoxpaul/"
     },
     {
       name: "Alyssa Jane Marquez",
-      role: "UI/UX Designer",
+      role: "Project Manager",
       email: "alyssamarquezzzzz@gmail.com",
       github: null,
       facebook: null
