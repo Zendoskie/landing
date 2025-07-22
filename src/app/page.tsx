@@ -86,7 +86,7 @@ export default function Home() {
     {
       name: "Alyssa Jane Marquez",
       role: "UI/UX Designer",
-      email: "alyssamarquez@gmail.com",
+      email: "alyssamarquezzzzz@gmail.com",
       github: null,
       facebook: null
     }
