@@ -80,8 +80,8 @@ export default function Home() {
       name: "John Paul Marquez",
       role: "AI Developer",
       email: "johnpaulmarquez028@gmail.com",
-      github: "https://github.com/johnpaulmarquez",
-      facebook: null
+      github: "https://github.com/Zendoskie",
+      facebook: "https://www.facebook.com/zendoxpaul/"
     },
     {
       name: "Alyssa Jane Marquez",
