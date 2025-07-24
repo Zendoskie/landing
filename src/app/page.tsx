@@ -76,12 +76,28 @@ export default function Home() {
     }
   ];
 
-  // Social proof data
-  const socialProof = [
-    { metric: "50+", label: "Educators Using Open2E" },
-    { metric: "10,000+", label: "Questions Evaluated" },
-    { metric: "95%", label: "Teacher Satisfaction" },
-    { metric: "90%", label: "Time Saved vs Manual" }
+  // Research highlights
+  const researchHighlights = [
+    { 
+      icon: "🎓", 
+      title: "Academic Research", 
+      description: "Computer Science thesis project focused on educational technology innovation" 
+    },
+    { 
+      icon: "🤖", 
+      title: "AI-Powered Evaluation", 
+      description: "Leveraging GPT-4o and advanced NLP for intelligent assessment automation" 
+    },
+    { 
+      icon: "⚡", 
+      title: "Real-time Processing", 
+      description: "Instant feedback generation for enhanced learning experiences" 
+    },
+    { 
+      icon: "🔬", 
+      title: "Research Innovation", 
+      description: "Exploring the future of automated evaluation in computer literacy education" 
+    }
   ];
 
   // Interactive demo state
@@ -243,19 +259,31 @@ export default function Home() {
         </div>
               </section>
 
-        {/* Social Proof Section */}
+        {/* Research Highlights Section */}
         <section className="relative railway-section border-t border-white/10">
           <div className="railway-container">
+            <div className="text-center mb-12">
+              <div className="scroll-animate slide-in-bottom">
+                <h2 className="text-3xl md:text-4xl font-bold railway-heading mb-4">
+                  Research Project Overview
+                </h2>
+                <p className="text-lg railway-text max-w-2xl mx-auto">
+                  A comprehensive study on AI-driven educational assessment technology
+                </p>
+              </div>
+            </div>
+            
             <div className="scroll-animate scale-in">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                {socialProof.map((item, index) => (
-                  <div key={index} className="railway-card p-6">
-                    <div className="text-3xl md:text-4xl font-bold text-yellow-400 mb-2">
-                      {item.metric}
-                    </div>
-                    <div className="text-sm text-gray-400 leading-tight">
-                      {item.label}
-                    </div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {researchHighlights.map((item, index) => (
+                  <div key={index} className="railway-card p-6 text-center">
+                    <div className="text-4xl mb-4">{item.icon}</div>
+                    <h3 className="text-lg font-bold railway-heading mb-3">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-400 leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
                 ))}
               </div>
