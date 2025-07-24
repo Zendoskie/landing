@@ -560,11 +560,17 @@ export default function Home() {
                   </h3>
                   <p className="text-yellow-400 font-medium mb-4">{researcher.role}</p>
                   <div className="space-y-3 text-sm">
-                    <div>
-                      <a href={`mailto:${researcher.email}`} className="text-gray-400 hover:text-white transition-colors block">
-                        📧 {researcher.email}
-                      </a>
-                    </div>
+                                              <div>
+                            <a 
+                              href={`https://mail.google.com/mail/?view=cm&fs=1&to=${researcher.email}&su=Hello%20from%20Open2E%20Landing%20Page&body=Hi%20${researcher.name.split(' ')[0]},%0D%0A%0D%0AI%20visited%20the%20Open2E%20landing%20page%20and%20would%20like%20to%20get%20in%20touch.%0D%0A%0D%0ABest%20regards,`}
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="text-gray-400 hover:text-white transition-colors block"
+                              title={`Send email to ${researcher.name}`}
+                            >
+                              📧 {researcher.email}
+                            </a>
+                          </div>
                     <div className="flex justify-center space-x-6">
                       {researcher.github && (
                         <a href={researcher.github} className="text-gray-400 hover:text-white transition-colors" target="_blank" rel="noopener noreferrer" title="GitHub">
