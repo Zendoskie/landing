@@ -112,7 +112,7 @@ export default function Home() {
     { feature: "Feedback Quality", manual: "Basic comments", open2e: "Detailed analysis", advantage: "Comprehensive" },
     { feature: "Bias Elimination", manual: "Subjective", open2e: "Objective AI", advantage: "100% unbiased" },
     { feature: "Scale Capacity", manual: "Limited by time", open2e: "Unlimited", advantage: "Infinite scale" },
-    { feature: "Cost per Evaluation", manual: "$2-5", open2e: "$0.10", advantage: "95% cost reduction" }
+    { feature: "Cost per Evaluation", manual: "₱250-500", open2e: "₱0.00", advantage: "100% cost reduction" }
   ];
 
   // Interactive demo function
