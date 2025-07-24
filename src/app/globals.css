@@ -319,6 +319,21 @@
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Enhanced hover effects for feature cards */
+.railway-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.railway-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 193, 49, 0.1);
+}
+
+/* Table hover effects */
+tbody tr:hover {
+  background: linear-gradient(90deg, rgba(255, 193, 49, 0.05), rgba(139, 92, 246, 0.05));
+}
+
 .scroll-animate.animate-in {
   opacity: 1;
 }
