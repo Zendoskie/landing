@@ -382,6 +382,129 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Demo Video Section */}
+      <section className="relative railway-section border-t border-white/10">
+        <div className="railway-container">
+          <div className="max-w-6xl mx-auto text-center">
+            <div className="scroll-animate slide-in-bottom">
+              <h2 className="text-4xl md:text-5xl font-bold railway-heading mb-6">
+                See Open2E in Action
+              </h2>
+              <p className="text-xl railway-text max-w-2xl mx-auto mb-12">
+                Watch how our AI-powered evaluation system analyzes student responses and provides instant, detailed feedback
+              </p>
+            </div>
+
+            <div className="scroll-animate scale-in">
+              <div className="railway-card p-8 mx-auto max-w-5xl">
+                {/* Video Container */}
+                <div className="relative group cursor-pointer overflow-hidden rounded-xl">
+                  <div className="aspect-video bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl flex items-center justify-center border border-white/10 group-hover:border-yellow-400/50 transition-all duration-300 relative overflow-hidden">
+                    {/* Video Placeholder */}
+                    <img 
+                      src="/demo-placeholder.svg" 
+                      alt="Open2E Demo Video Preview" 
+                      className="w-full h-full object-cover"
+                    />
+                    
+                    {/* Play Button Overlay */}
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
+                      <div className="w-20 h-20 bg-yellow-400/20 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border-2 border-yellow-400">
+                        <div className="w-8 h-8 ml-1">
+                          <svg viewBox="0 0 24 24" fill="currentColor" className="text-yellow-400">
+                            <path d="M8 5v14l11-7z"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Video Duration */}
+                    <div className="absolute bottom-4 right-4 bg-black/70 backdrop-blur-sm px-3 py-1 rounded-full text-sm text-white">
+                      2:30
+                    </div>
+                  </div>
+                  
+                  {/* Video Description */}
+                  <div className="mt-6 grid md:grid-cols-3 gap-6 text-left">
+                    <div className="flex items-start space-x-3">
+                      <div className="text-2xl">🎯</div>
+                      <div>
+                        <h3 className="font-bold text-yellow-400 mb-2">Question Analysis</h3>
+                        <p className="text-sm text-gray-400">Watch how AI understands and breaks down complex questions</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="text-2xl">⚡</div>
+                      <div>
+                        <h3 className="font-bold text-yellow-400 mb-2">Real-time Evaluation</h3>
+                        <p className="text-sm text-gray-400">See instant scoring and feedback generation in action</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <div className="text-2xl">📊</div>
+                      <div>
+                        <h3 className="font-bold text-yellow-400 mb-2">Detailed Reports</h3>
+                        <p className="text-sm text-gray-400">Comprehensive analytics and improvement suggestions</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Quick Workflow Animation */}
+                <div className="mt-8 p-6 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-xl border border-indigo-400/20">
+                  <div className="text-center mb-6">
+                    <h3 className="font-bold text-lg text-indigo-400 mb-2">Quick Workflow Preview</h3>
+                    <p className="text-sm text-gray-400">See the evaluation process in 10 seconds</p>
+                  </div>
+                  
+                  <div className="relative group cursor-pointer">
+                    <div className="aspect-[3/2] bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg flex items-center justify-center border border-white/10 group-hover:border-indigo-400/50 transition-all duration-300 relative overflow-hidden">
+                      {/* Animated GIF Placeholder */}
+                      <img 
+                        src="/demo-animation.svg" 
+                        alt="Open2E Workflow Animation" 
+                        className="w-full h-full object-cover"
+                      />
+                      
+                      {/* GIF Play Indicator */}
+                      <div className="absolute top-4 right-4 bg-indigo-500/80 backdrop-blur-sm px-3 py-1 rounded-full text-xs text-white font-medium">
+                        GIF • Auto-play
+                      </div>
+                      
+                      {/* Hover overlay */}
+                      <div className="absolute inset-0 bg-indigo-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="text-2xl mb-2">🔄</div>
+                          <p className="text-sm font-medium text-white">Loops every 4 seconds</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Additional Info */}
+                <div className="mt-8 flex flex-col sm:flex-row items-center justify-between p-6 bg-gradient-to-r from-yellow-400/10 to-indigo-500/10 rounded-xl border border-yellow-400/20">
+                  <div className="text-center sm:text-left mb-4 sm:mb-0">
+                    <h3 className="font-bold text-lg text-yellow-400 mb-1">Live Demo Available</h3>
+                    <p className="text-sm text-gray-400">Try the interactive demo below to experience Open2E yourself</p>
+                  </div>
+                  <div className="flex items-center space-x-4 text-sm text-gray-400">
+                    <div className="flex items-center space-x-1">
+                      <span className="w-2 h-2 bg-green-400 rounded-full"></span>
+                      <span>4K Quality</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <span className="w-2 h-2 bg-green-400 rounded-full"></span>
+                      <span>Subtitles Available</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Interactive Demo Section */}
       <section id="demo" className="relative railway-section border-t border-white/10">
         <div className="railway-container">
@@ -399,7 +522,7 @@ export default function Home() {
               <div className="railway-card p-8 mx-auto max-w-3xl">
                 <div className="mb-6">
                   <label className="block text-left text-sm font-medium text-gray-300 mb-3">
-                    Sample Question: "Explain the importance of artificial intelligence in modern education."
+                    Sample Question: &quot;Explain the importance of artificial intelligence in modern education.&quot;
                   </label>
                   <textarea
                     value={demoQuestion}
@@ -536,7 +659,7 @@ export default function Home() {
                 Team
               </h2>
               <p className="text-xl railway-text max-w-2xl mx-auto">
-                Meet the minds behind Open2E's innovative AI evaluation technology
+                Meet the minds behind Open2E&apos;s innovative AI evaluation technology
               </p>
             </div>
           </div>
@@ -605,7 +728,7 @@ export default function Home() {
                   Frequently Asked Questions
                 </h2>
                 <p className="text-xl railway-text">
-                  Common questions about Open2E's AI evaluation system
+                  Common questions about Open2E&apos;s AI evaluation system
                 </p>
               </div>
             </div>

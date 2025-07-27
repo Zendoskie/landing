@@ -30,9 +30,11 @@ Open2E is a research project that addresses the challenges of manual grading for
 1. **Hero Section** - Introduction and main call-to-action
 2. **Research Objective** - Problem statement and solution overview
 3. **Key Features** - Feature showcase with screenshot placeholders
-4. **About the Researchers** - Team information and contact details
-5. **FAQ** - Common questions about the AI evaluation system
-6. **Download Section** - Download links for Linux and Windows
+4. **Demo Video** - Video demonstration of Open2E in action (placeholder)
+5. **Interactive Demo** - Live demo where users can test the AI evaluation
+6. **About the Researchers** - Team information and contact details
+7. **FAQ** - Common questions about the AI evaluation system
+8. **Download Section** - Download links for Linux and Windows
 
 ## Technology Stack
 
